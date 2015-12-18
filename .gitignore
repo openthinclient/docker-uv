@@ -1,0 +1,4 @@
+# Dont upload jars, Vim swap files
+*.swp
+*.swo
+*.jar
