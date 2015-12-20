@@ -11,6 +11,7 @@ A stable version is not yet released.
 * docker build -t openthinclient-uv .
 
 ### download from Docker hub (second way)
+* (coming soon)
 
 ### launch a container
 * xhost +
