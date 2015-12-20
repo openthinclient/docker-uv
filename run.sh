@@ -1,5 +1,7 @@
 #!/bin/bash
 
+key="$1"
+
 install() {
     docker run -it \
         --name otc \
@@ -22,3 +24,29 @@ stop_otc() {
     sleep 2
     docker stop otc
 }
+
+key="$1"
+
+case $key in
+    -h|--help)
+        echo -e "synopsis: install | start | stop"
+        shift
+    ;;
+    -i|--install)
+        install
+        shift
+    ;;
+    --start)
+         start_otc 
+         shift
+     ;;
+     --stop)
+         stop_otc
+         shift
+     ;;
+     *)
+        echo "parameter not known. -h | --help for manual"
+    ;;
+esac
+shift
+
