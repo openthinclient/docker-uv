@@ -15,7 +15,7 @@ A stable version is not yet released.
 
 ### launch a container
 * xhost +
-* bash run.sh install
+* bash run.sh --install
  * follow install Instructions
 * bash run.sh --start
 
