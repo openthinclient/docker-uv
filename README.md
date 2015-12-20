@@ -8,10 +8,10 @@ A stable version is not yet released.
 ### Build the Image by hand (first way)
 * clone this repo
 * cd docker-uv 
-* docker build -t openthinclient-uv .
+* docker build -t docker-uv .
 
 ### download from Docker hub (second way)
-* (coming soon)
+* docker pull jenerpeon/docker-uv
 
 ### launch a container
 * xhost +
