@@ -6,7 +6,7 @@ A stable version is not yet released.
 ## Installation Instruction
 
 ### Build the Image by hand (first way)
-* clone this repo && checkout develop
+* clone this repo
 * cd docker-uv 
 * docker build -t openthinclient-uv .
 
