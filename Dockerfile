@@ -1,28 +1,24 @@
-# openthinclient-suite inside Docker FROM debian
-FROM univention/ucs-appbox-amd64:4.0-0
+# openthinclient-suite inside Docker
+FROM univention/ucs-appbox-amd64:4.1-0
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && apt-get install -y \
+RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee -a /etc/apt/sources.list && \
+    echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee -a /etc/apt/sources.list && \
+    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886 && \
+    apt-get update
+
+RUN echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
+    apt-get update && apt-get install -y \    
+    xorg \
     oracle-java8-installer \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
+    oracle-java8-set-default
 
+ADD https://raw.githubusercontent.com/openthinclient/docker-uv/develop/data/start.sh /tmp/data/ 
+ADD http://downloads.sourceforge.net/project/openthinclient/installer/openthinclient-2.1-Pales.jar?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fopenthinclient%2F&ts=1450570667&use_mirror=skylink /tmp/data/
+ADD https://raw.githubusercontent.com/openthinclient/docker-uv/develop/data/postinstall.sh /tmp/data/
 
-COPY data/jre-oracle-7.sh /tmp/
-COPY data/openthinclient-installer.sh /tmp/
-COPY data/openthinclient-2.0-consus.jar /tmp/
-COPY data/start.sh /tmp/
+## Local source
+#ADD data/openthinclient-2.1-Pales.jar /tmp/data
 
-RUN useradd -ms /bin/bash vagrant
-
-# install Software from local source
-RUN sh /tmp/jre-oracle-7.sh
-RUN sh /tmp/openthinclient-installer.sh
-RUN cp /tmp/start.sh /opt/openthinclient/bin/./start.sh
-# RUN /etc/init.d/openthinclient restart
-RUN /opt/openthinclient/bin/start.sh start
-
-# Clean up a little
-RUN rm -f /tmp/*.jar
-RUN rm -f /tmp/*.sh
+CMD /tmp/data/postinstall.sh
 
