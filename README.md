@@ -16,7 +16,7 @@ A stable version is not yet released.
 ### launch a container
 * xhost +
 * bash run.sh install
-** follow install Instructions
+ * follow install Instructions
 * bash run.sh --start
 
 And you are done! 
