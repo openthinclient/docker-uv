@@ -9,13 +9,7 @@ A stable version is not yet released.
 * docker pull jenerpeon/docker-uv
 
 ### launch a container
-* wget https://github.com/openthinclient/docker-uv/blob/master/run.sh
-* xhost +
-* bash run.sh install
-** follow install Instructions
-* bash run.sh --start
-
-And you are done! 
+* docker run -it --net=host openthinclient-uv sh /etc/init.d/otc-start.sh
 * visit http://localhost:8080 to start the manager console
 
 But...
