@@ -6,17 +6,17 @@ A stable version is not yet released.
 ## Installation Instruction
 
 ### Build the Image by hand (first way)
-* clone this repo && checkout develop
+* clone this repo
 * cd docker-uv 
-* docker build -t openthinclient-uv .
+* docker build -t docker-uv .
 
 ### download from Docker hub (second way)
-* (coming soon)
+* docker pull jenerpeon/docker-uv
 
 ### launch a container
 * xhost +
-* bash run.sh install
-** follow install Instructions
+* bash run.sh --install
+ * follow install Instructions
 * bash run.sh --start
 
 And you are done! 
