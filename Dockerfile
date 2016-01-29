@@ -14,12 +14,12 @@ RUN echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-s
     libxrender1 \
     libxtst6
 
-#ADD http://downloads.sourceforge.net/project/openthinclient/installer/openthinclient-2.1-Pales.jar?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fopenthinclient%2F&ts=1450570667&use_mirror=skylink /tmp/data/
+ADD http://downloads.sourceforge.net/project/openthinclient/installer/openthinclient-2.1-Pales.jar?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fopenthinclient%2F&ts=1450570667&use_mirror=skylink /tmp/data/
 ADD https://raw.githubusercontent.com/openthinclient/docker-uv/develop/data/openthinclient-installer.sh /tmp/data/
 ADD https://raw.githubusercontent.com/openthinclient/docker-uv/develop/data/start.sh /etc/init.d/otc-start.sh
 
 ## Local source
-ADD data/openthinclient-2.1-Pales.jar /tmp/data
+#ADD data/openthinclient-2.1-Pales.jar /tmp/data
 #ADD data/start.sh /tmp/data/start.sh
 #ADD data/openthinclient-installer.sh
 
