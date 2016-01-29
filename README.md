@@ -14,10 +14,7 @@ A stable version is not yet released.
 * docker pull jenerpeon/docker-uv
 
 ### launch a container
-* xhost +
-* bash run.sh --install
- * follow install Instructions
-* bash run.sh --start
+* docker run -it --name otc --net=host docker-uv 
 
 And you are done! 
 * visit http://localhost:8080 to start the manager console
