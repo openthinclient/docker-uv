@@ -25,6 +25,7 @@ ADD https://raw.githubusercontent.com/openthinclient/docker-uv/develop/data/star
 
 RUN sh /tmp/data/openthinclient-installer.sh
 RUN rm -rf /tmp/data/
+RUN chmod 0755 /etc/init.d/otc-start.sh
 
-#ENTRYPOINT ["sh","/etc/init.d/otc-start.sh"]
+ENTRYPOINT ["bash","/etc/init.d/otc-start.sh"]
 
